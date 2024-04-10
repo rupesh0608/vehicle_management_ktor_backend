@@ -1,0 +1,94 @@
+openapi: "3.0.3"
+info:
+  title: "Vehicle Management API"
+  description: "Basic Curd operation API that allows you to manage vehicle data"
+  version: "1.0.0"
+servers:
+  - url: "http://0.0.0.0:8080"
+paths:
+  /api/vehicles:
+    get:
+      summary: "Get all vehicles"
+      description: "Returns a list of all vehicles"
+      responses:
+        200:
+          description: "Successful operation"
+
+  /api/vehicle:
+    post:
+      summary: "Register Vehicle"
+      description: "creates  vehicle entry"
+      parameters:
+        - name: "vehicleCondition"
+          in: "parameter"
+          description: "Select vehicle Condition example NEW,OLD"
+          required: true
+          type: "String"
+        - name: "vehicleType"
+          in: "parameter"
+          description: "options [BIKE,CAR,TRUCK]"
+          required: true
+          type: "String"
+        - name: "brand"
+          in: "parameter"
+          description: "options [HERO,HONDA,HERO_HONDA,TVS,BAJAJ,KTM,YAMAHA]"
+          required: true
+          type: "String"
+        - name: "model"
+          in: "parameter"
+          description: "example splender pro,twister,...etc"
+          required: true
+          type: "String"
+        - name: "buildYear"
+          in: "parameter"
+          description: "example 2011"
+          required: true
+          type: "integer"
+          format: "int64"
+        - name: "registrationNumber"
+          in: "parameter"
+          description: "example UP16ED3531"
+          required: true
+          type: "String"
+        - name: "fuelType"
+          in: "parameter"
+          description: "options [PETROL,DIESEL,CNG]"
+          required: true
+          type: "String"
+        - name: "fuelTankCapacityInLtrs"
+          in: "parameter"
+          description: "example 12.00"
+          required: true
+          type: "Double"
+        - name: "purchaseDate"
+          in: "parameter"
+          description: "example 01/01/2011"
+          required: true
+          type: "String"
+        - name: "purchasePrice"
+          in: "parameter"
+          description: "example 700000.00"
+          required: true
+          type: "Double"
+        - name: "kmReading"
+          in: "parameter"
+          description: "example 10.00"
+          required: true
+          type: "Double"
+      responses:
+        200:
+          description: "Successful operation"
+  /api/vehicle/{id}:
+    get:
+      summary: "Get vehicle detail"
+      description: "Returns a vehicle details"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID of vehicle to return"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
