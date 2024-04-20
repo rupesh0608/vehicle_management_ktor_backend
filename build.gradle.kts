@@ -9,6 +9,12 @@ plugins {
     kotlin("plugin.serialization") version "1.6.0"
 }
 
+ktor {
+    fatJar {
+        archiveFileName.set("app.jar")
+    }
+}
+
 group = "com.example"
 version = "0.0.1"
 
